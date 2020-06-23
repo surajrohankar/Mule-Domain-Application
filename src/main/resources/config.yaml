@@ -1,0 +1,9 @@
+port: "8081"
+publishpath: "/vmpublish"
+consumepath: "/vmconsume"
+
+vmqueue: "input"
+
+file:
+  workingdirectory: "/home/ue/Desktop/gd folder"
+  filepath: "/home/ue/Desktop/gd folder/newpayload.json"

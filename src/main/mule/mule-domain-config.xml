@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain:mule-domain
+xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	        xmlns="http://www.mulesoft.org/schema/mule/core"
+        xmlns:domain="http://www.mulesoft.org/schema/mule/ee/domain"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+        xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd 
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd 
+               http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+               http://www.mulesoft.org/schema/mule/ee/domain http://www.mulesoft.org/schema/mule/ee/domain/current/mule-domain-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="10289b27-b51a-4487-a50d-42515c312823" >
+		<http:listener-connection host="0.0.0.0" port="${port}" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="3266e11b-23b4-48de-8a06-b0330c5a1a3f" file="config.yaml" />
+	<file:config name="File_Config" doc:name="File Config" doc:id="28518277-49cf-41f5-ab29-53196b3139d2" >
+		<file:connection workingDir="${file.workingdirectory}" />
+	</file:config>
+	<vm:config name="VM_Config" doc:name="VM Config" doc:id="c9b6c8ab-cb7b-4a14-b263-84d6d18600c4" >
+		<vm:connection />
+		<vm:queues >
+			<vm:queue queueName="${vmqueue}" />
+		</vm:queues>
+	</vm:config>
+    <!-- configure here resource to be shared within the domain -->
+
+</domain:mule-domain>
